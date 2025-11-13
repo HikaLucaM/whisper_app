@@ -1,4 +1,5 @@
 streamlit
-openai-whisper
+whisper
 torch
 ffmpeg-python
+# ffmpegはPythonパッケージではなく、システムにインストールが必要です。
