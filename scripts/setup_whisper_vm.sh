@@ -66,7 +66,8 @@ After=network.target
 [Service]
 User=azureuser
 WorkingDirectory=/home/azureuser/whisper_app
-Environment="PATH=/home/azureuser/whisper_app/venv/bin"
+# Ensure system binaries (e.g. /usr/bin/ffmpeg) are on PATH so external tools are available
+Environment="PATH=/home/azureuser/whisper_app/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 ExecStart=/home/azureuser/whisper_app/venv/bin/streamlit run /home/azureuser/whisper_app/whisper_app.py --server.address 127.0.0.1 --server.port 8501 --server.enableCORS false --server.enableXsrfProtection false
 Restart=always
 RestartSec=5
