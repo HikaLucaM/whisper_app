@@ -93,6 +93,8 @@ Notes:
 
   Note on transcription backend: The app now prefers `faster-whisper` (faster on CPU, supports quantized compute types) when installed, and falls back to `openai-whisper`'s `whisper.load_model()` if not. Ensure you have either `faster-whisper` or `openai-whisper` installed in the VM's virtual environment. See `requirements.txt`.
 
+Note: System binaries (such as `ffmpeg`) must be available to the Streamlit service. The setup script now sets the service PATH to include `/usr/bin` so tools like `ffmpeg` are found when running under systemd.
+
 - After setup, check the service with `sudo systemctl status whisper_app` and logs with `sudo journalctl -u whisper_app -f`.
 
 ## Continuous Integration & Deployment
